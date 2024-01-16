@@ -14,15 +14,7 @@ public class Scene extends JPanel {
 
     void addItem (Item item) {
         if (item instanceof Singleton) {
-            Iterator<Item> iterator = items.iterator();
-            while (iterator.hasNext()) {
-                Item i = iterator.next();
-                if (i instanceof Singleton) {
-                    if (i.getClass().equals(item.getClass())) {
-                        iterator.remove();
-                    }
-                }
-            }
+            items.removeIf(i -> i.getClass().equals(item.getClass()));
         }
         items.add(item);
     }
