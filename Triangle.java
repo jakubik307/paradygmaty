@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.List;
 
-public class Triangle extends Shape {
+public class Triangle extends Shape implements Singleton {
     protected Point p1;
     protected Point p2;
     protected Point p3;

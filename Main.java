@@ -18,6 +18,10 @@ public class Main {
 
         Triangle triangle = new Triangle(true, new Point(400, 420), new Point(510, 370), new Point(420, 300));
         scene.addItem(triangle);
+
+        Triangle triangle2 = new Triangle(false, new Point(400, 420), new Point(510, 370), new Point(420, 300));
+        scene.addItem(triangle2);
+
         drawBoundingBox(scene, triangle.getBoundingBox());
 
         ComplexItem complexItem = new ComplexItem(new Point(0, 0), List.of(

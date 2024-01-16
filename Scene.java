@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Scene extends JPanel {
@@ -12,6 +13,17 @@ public class Scene extends JPanel {
     }
 
     void addItem (Item item) {
+        if (item instanceof Singleton) {
+            Iterator<Item> iterator = items.iterator();
+            while (iterator.hasNext()) {
+                Item i = iterator.next();
+                if (i instanceof Singleton) {
+                    if (i.getClass().equals(item.getClass())) {
+                        iterator.remove();
+                    }
+                }
+            }
+        }
         items.add(item);
     }
 
