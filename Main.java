@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -28,8 +29,8 @@ public class Main {
         scene.addItem(complexItem);
         complexItem.translate(new Point(600, 200));
 
-        ItemDecorator triangleDecorator = new ItemDecorator(triangle);
-        scene.addItem(triangleDecorator);
+//        ItemDecorator triangleDecorator = new ItemDecorator(triangle);
+//        scene.addItem(triangleDecorator);
 
         TextItem textItem = new TextItem(new Point(200, 400), "Wesołych świąt xD");
         scene.addItem(textItem);
@@ -49,6 +50,30 @@ public class Main {
 
         frame.add(scene);
         frame.setVisible(true);
+
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+
+            //Print list of items
+            System.out.println("List of items:");
+            for (int i = 0; i < scene.getItems().size(); i++) {
+                System.out.println(i + ". " + scene.getItems().get(i));
+            }
+
+            //Get item index
+            System.out.println("Enter item index:");
+            int itemIndex = scanner.nextInt();
+
+            //Get item
+            IItem item = scene.getItems().get(itemIndex);
+
+            //Remove item from the scene and replace it with a decorated version
+            scene.getItems().remove(itemIndex);
+            scene.addItem(new ItemDecorator(item));
+
+            //Repaint the scene
+            scene.repaint();
+        }
     }
 
     private static void drawBoundingBox(Scene scene, List<Point> boundingBox) {

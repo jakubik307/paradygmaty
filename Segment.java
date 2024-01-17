@@ -28,9 +28,9 @@ public class Segment extends Primitive{
     @Override
     public List<Point> getBoundingBox() {
         Point p1 = new Point(position.getX(), position.getY());
-        Point p2 = new Point(position.getX() + Math.max(start.getX(), end.getX()), position.getY());
-        Point p3 = new Point(position.getX() + Math.max(start.getX(), end.getX()), position.getY() + Math.max(start.getY(), end.getY()));
-        Point p4 = new Point(position.getX(), position.getY() + Math.max(start.getY(), end.getY()));
+        Point p2 = new Point(Math.max(start.getX(), end.getX()), position.getY());
+        Point p3 = new Point(Math.max(start.getX(), end.getX()), Math.max(start.getY(), end.getY()));
+        Point p4 = new Point(position.getX(), Math.max(start.getY(), end.getY()));
         return List.of(p1, p2, p3, p4);
     }
 
