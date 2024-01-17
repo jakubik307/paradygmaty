@@ -18,7 +18,7 @@ public class TextItem extends Item {
     }
 
     @Override
-    List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         Point p1 = new Point(position.getX() - 5, position.getY() - 15);
         Point p2 = new Point(position.getX() - 5 + text.length() * 7, position.getY() - 15);
         Point p3 = new Point(position.getX() + text.length() * 7, position.getY() + 5);
@@ -28,7 +28,7 @@ public class TextItem extends Item {
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         g.drawString(text, position.getX(), position.getY());
     }
 }

@@ -12,7 +12,7 @@ public class Rect extends Shape{
     }
 
     @Override
-    List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         Point p1 = new Point(position.getX(), position.getY());
         Point p2 = new Point(position.getX() + width, position.getY());
         Point p3 = new Point(position.getX() + width, position.getY() + height);
@@ -21,7 +21,7 @@ public class Rect extends Shape{
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         if (filled) g.fillRect(position.getX(), position.getY(), width, height);
         else g.drawRect(position.getX(), position.getY(), width, height);
     }

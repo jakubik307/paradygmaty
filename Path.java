@@ -14,7 +14,7 @@ public class Path extends Item {
     }
 
     @Override
-List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         int minX = Integer.MAX_VALUE;
         int minY = Integer.MAX_VALUE;
         int maxX = Integer.MIN_VALUE;
@@ -36,7 +36,7 @@ List<Point> getBoundingBox() {
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         for (int i = 0; i < points.size() - 1; i++) {
             Point p1 = points.get(i);
             Point p2 = points.get(i + 1);

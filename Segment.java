@@ -26,7 +26,7 @@ public class Segment extends Primitive{
     }
 
     @Override
-    List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         Point p1 = new Point(position.getX(), position.getY());
         Point p2 = new Point(position.getX() + Math.max(start.getX(), end.getX()), position.getY());
         Point p3 = new Point(position.getX() + Math.max(start.getX(), end.getX()), position.getY() + Math.max(start.getY(), end.getY()));
@@ -35,7 +35,7 @@ public class Segment extends Primitive{
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         g.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
     }
 }

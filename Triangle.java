@@ -26,7 +26,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         Point p1 = new Point(position.getX(), position.getY());
         Point p2 = new Point(Math.max(Math.max(this.p1.getX(), this.p2.getX()), this.p3.getX()), position.getY());
         Point p3 = new Point(Math.max(Math.max(this.p1.getX(), this.p2.getX()), this.p3.getX()), Math.max(Math.max(this.p1.getY(), this.p2.getY()), this.p3.getY()));
@@ -35,7 +35,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         if (filled) g.fillPolygon(new int[]{p1.getX(), p2.getX(), p3.getX()}, new int[]{p1.getY(), p2.getY(), p3.getY()}, 3);
         else g.drawPolygon(new int[]{p1.getX(), p2.getX(), p3.getX()}, new int[]{p1.getY(), p2.getY(), p3.getY()}, 3);
     }

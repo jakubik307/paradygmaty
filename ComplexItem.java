@@ -25,7 +25,7 @@ public class ComplexItem extends Item{
     }
 
     @Override
-    List<Point> getBoundingBox() {
+    public List<Point> getBoundingBox() {
         int minX = children.stream().min(Comparator.comparingInt(item -> item.getBoundingBox().get(0).getX())).get().getBoundingBox().get(0).getX();
         int minY = children.stream().min(Comparator.comparingInt(item -> item.getBoundingBox().get(0).getY())).get().getBoundingBox().get(0).getY();
         int maxX = children.stream().max(Comparator.comparingInt(item -> item.getBoundingBox().get(2).getX())).get().getBoundingBox().get(2).getX();
@@ -40,7 +40,7 @@ public class ComplexItem extends Item{
     }
 
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
         for (Item child : children) {
             child.draw(g);
         }

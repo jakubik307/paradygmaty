@@ -18,7 +18,7 @@ public class Main {
 
         Triangle triangle = new Triangle(true, new Point(400, 420), new Point(510, 370), new Point(420, 300));
         scene.addItem(triangle);
-        drawBoundingBox(scene, triangle.getBoundingBox());
+//        drawBoundingBox(scene, triangle.getBoundingBox());
 
         ComplexItem complexItem = new ComplexItem(new Point(0, 0), List.of(
                 new Circle(new Point(0, 200), false, 100),
@@ -27,11 +27,12 @@ public class Main {
         ));
         scene.addItem(complexItem);
         complexItem.translate(new Point(600, 200));
-        drawBoundingBox(scene, complexItem.getBoundingBox());
+
+        ItemDecorator triangleDecorator = new ItemDecorator(triangle);
+        scene.addItem(triangleDecorator);
 
         TextItem textItem = new TextItem(new Point(200, 400), "Wesołych świąt xD");
         scene.addItem(textItem);
-        drawBoundingBox(scene, textItem.getBoundingBox());
 
         // Add path to frame
         Path path = new Path(new Point(0, 0), List.of(
