@@ -1,25 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Scene extends JPanel {
-    private final List<Item> items;
+    private final List<IItem> items;
 
     public Scene ()
     {
         items = new ArrayList<>();
     }
 
-    void addItem (Item item) {
+    void addItem (IItem item) {
         if (item instanceof Singleton) {
             items.removeIf(i -> i.getClass().equals(item.getClass()));
         }
         items.add(item);
     }
 
-    public List<Item> getItems() {
+    public List<IItem> getItems() {
         return items;
     }
 
@@ -27,7 +26,7 @@ public class Scene extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for (Item item : items) {
+        for (IItem item : items) {
             item.draw(g);
         }
     }

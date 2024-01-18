@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.List;
 
-public abstract class Item {
+public abstract class Item implements IItem{
     protected Point position;
 
     public Item(Point position) {
@@ -21,7 +21,5 @@ public abstract class Item {
         position.setY(position.getY() + p.getY());
     }
 
-    abstract List<Point> getBoundingBox();
 
-    abstract void draw(Graphics g);
 }
